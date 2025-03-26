@@ -21,7 +21,7 @@ MQTT_TOPIC = f"channels/{CHANNEL_ID}/publish"
 MQTT_USERNAME = os.getenv("MQTT_USERNAME")
 MQTT_CLIENT_ID = os.getenv("MQTT_CLIENT_ID")
 MQTT_PASSWORD = os.getenv("MQTT_PASSWORD")
-PUBLISH_INTERVAL = 15 #* 60  # 15 minutes
+PUBLISH_INTERVAL = 15 * 60  # 15 minutes
 
 def print_header(text):
     """Print a formatted header"""
