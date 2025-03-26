@@ -15,6 +15,7 @@ This project is part of CIS600 Internet of Things: Application Development (Spri
 2. Publishes sensor data to ThingSpeak using MQTT protocol
 3. Provides real-time visualization of sensor data
 4. Stores historical data for analysis
+5. Generates local visualizations of sensor data
 
 ## Features
 
@@ -22,6 +23,7 @@ This project is part of CIS600 Internet of Things: Application Development (Spri
 - **MQTT Communication**: Secure data transmission to ThingSpeak
 - **Real-time Monitoring**: Live visualization of sensor readings
 - **Historical Data**: Access to past sensor readings
+- **Local Visualization**: Generate charts for latest and historical data
 - **Configurable Settings**: Easy customization of sensor ranges and update intervals
 
 ## Prerequisites
@@ -75,7 +77,19 @@ CHANNEL_ID=your_channel_id
 python sensor_simulation.py
 ```
 
-2. View the data on ThingSpeak:
+2. View latest sensor readings with visualization:
+
+```bash
+python display_latest_data.py [channel_id]
+```
+
+3. View historical sensor data with visualization:
+
+```bash
+python display_historical_data.py [channel_id]
+```
+
+4. View the data on ThingSpeak:
    - Visit your ThingSpeak channel
    - View real-time graphs
    - Access historical data
@@ -88,7 +102,9 @@ IoT-App-Dev-VirtualEnvironmentalStation/
 ├── requirements.txt
 ├── .env.example
 ├── .env
-└── sensor_simulation.py
+├── sensor_simulation.py
+├── display_latest_data.py
+└── display_historical_data.py
 ```
 
 ## Implementation Details
@@ -109,8 +125,23 @@ IoT-App-Dev-VirtualEnvironmentalStation/
 ### Data Visualization
 
 - Real-time graphs on ThingSpeak dashboard
+- Local visualization using matplotlib:
+  - Latest readings displayed as line charts
+  - Historical data displayed as time series
+  - Separate charts for temperature, humidity, and CO2
+  - Proper scaling and units for each measurement
 - Historical data access
 - Customizable display options
+
+### Dependencies
+
+The project uses the following main packages:
+
+- paho-mqtt==1.6.1: For MQTT communication
+- python-dotenv==1.0.0: For environment variable management
+- requests==2.31.0: For HTTP requests to ThingSpeak API
+- matplotlib==3.8.2: For generating visualizations
+- urllib3==1.26.18: For HTTP operations (compatible with LibreSSL)
 
 ## Development Steps
 
@@ -120,7 +151,8 @@ IoT-App-Dev-VirtualEnvironmentalStation/
 4. Set up MQTT communication
 5. Implement data publishing
 6. Configure visualization
-7. Test and optimize
+7. Implement local data display and charts
+8. Test and optimize
 
 ## License
 
