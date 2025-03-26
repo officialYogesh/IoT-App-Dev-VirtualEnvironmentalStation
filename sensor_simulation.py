@@ -17,7 +17,7 @@ MQTT_TOPIC = f"channels/{CHANNEL_ID}/publish"
 MQTT_USERNAME = os.getenv("MQTT_USERNAME")
 MQTT_CLIENT_ID = os.getenv("MQTT_CLIENT_ID")
 MQTT_PASSWORD = os.getenv("MQTT_PASSWORD")
-PUBLISH_INTERVAL = 15  # seconds
+PUBLISH_INTERVAL = 15 * 60  # 15 minutes
 
 class SensorSimulator:
     def __init__(self):
